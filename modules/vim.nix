@@ -26,6 +26,9 @@
         set incsearch
         set nrformats-=octal
 
+        set swapfile
+        set dir=~/tmp
+
         filetype plugin indent on
 
         " save a read-only file
