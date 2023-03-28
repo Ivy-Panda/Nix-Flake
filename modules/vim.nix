@@ -27,7 +27,9 @@
         set nrformats-=octal
 
         set swapfile
-        set dir=~/tmp
+        set dir=~/tmp//
+        set backupdir=~/tmp//
+        set undodir=~/tmp//
 
         filetype plugin indent on
 
