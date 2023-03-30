@@ -27,6 +27,11 @@
     { device = "/dev/disk/by-uuid/593C-C52C";
       fsType = "vfat";
     };
+  
+  fileSystems."/home" =
+    { device = "tank/home";
+      fsType = "zfs";
+    };
 
   swapDevices = [ ];
 
