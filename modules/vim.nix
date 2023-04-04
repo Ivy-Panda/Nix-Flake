@@ -1,8 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, self, ... }: {
 
   environment.variables = rec {
     EDITOR = "vim";
   };
+  
+  system.activationScripts = { text = "mkdir -p /home/ivy/tmp"; };
   
   environment.systemPackages = with pkgs; [
     ((vim_configurable.override {  }).customize{
@@ -27,9 +29,13 @@
         set nrformats-=octal
 
         set swapfile
-        set dir=~/tmp//
-        set backupdir=~/tmp//
-        set undodir=~/tmp//
+        set directory=~/tmp/dir//
+        set backupdir=~/tmp/backupdir//
+        set undodir=~/tmp/undodir//
+
+        for i in [ &undodir, &directory, &backupdir ]
+          call mkdir(i, "p")
+        endfor
 
         filetype plugin indent on
 
