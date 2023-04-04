@@ -3,9 +3,9 @@
   environment.variables = rec {
     EDITOR = "vim";
   };
-  
+
   system.activationScripts = { text = "mkdir -p /home/ivy/tmp"; };
-  
+
   environment.systemPackages = with pkgs; [
     ((vim_configurable.override {  }).customize{
       name="vim";
@@ -41,12 +41,12 @@
 
         " save a read-only file
         cmap w!! %!sudo tee > /dev/null %
-      
-        '';
-      }
-      )
-    ];
-  }
+
+      '';
+    }
+    )
+  ];
+}
 
 
 
