@@ -7,8 +7,9 @@
 
     extraConfig = {
       gpg.format = "ssh";
-      user.signingkey = "~/.ssh/id_ed25519.pub";
+      user.signingkey = "~/.ssh/keys/github.pub";
       commit.gpgsign = "true";
+      gpg.ssh.allowedSignersFile = "~/.ssh/keys/github.pub";
     };
   };
 }
