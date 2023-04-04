@@ -9,7 +9,7 @@
       gpg.format = "ssh";
       user.signingkey = "~/.ssh/keys/github.pub";
       commit.gpgsign = "true";
-      gpg.ssh.allowedSignersFile = "~/.ssh/keys/github.pub";
+      gpg.ssh.allowedSignersFile = "~/.ssh/keys/github.auth";
     };
   };
 }
