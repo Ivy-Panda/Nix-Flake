@@ -24,7 +24,7 @@
         set showcmd
         set wildmenu
         set ttimeout
-        set ttimeoutlen=100
+        set ttimeoutlen=50
         set incsearch
         set nrformats-=octal
 

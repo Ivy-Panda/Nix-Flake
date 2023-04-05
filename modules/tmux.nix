@@ -6,6 +6,8 @@
       set -g status-right '#{?client_prefix,#[reverse]<CMD>#[noreverse] ,}"#{=21:pane_title}" %H:%M %d-%b-%y'
 
       setw -g mode-keys vi
+
+      set -s escape-time 50
       
       unbind l
       bind C-l last-window
