@@ -40,11 +40,12 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "ctrl:swapcaps"; # swaps capslock and ctrl
 
+  # Change bash / anything using readline to use vi mode and show colored mode indicators
   environment.etc."inputrc".text = ''
     set editing-mode vi
     set show-mode-in-prompt on
-    set vi-ins-mode-string "\1\e[1;32m\2i:\1\e[0m\2"
-    set vi-cmd-mode-string "\1\e[1;31m\2c?\1\e[0m\2"
+    set vi-ins-mode-string "\1\e[1;32m\2[i]\1\e[0m\2"
+    set vi-cmd-mode-string "\1\e[1;32m\2[\1\e[1;31m\2c\1\e[1;32m\2]\e[0m\2"
     '';
 
   # Enable CUPS to print documents.
