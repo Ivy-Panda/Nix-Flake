@@ -18,12 +18,9 @@
   security.sudo.extraConfig = "Defaults lecture=never";
 
   users = {
-    mutableUsers = false;
-
     users.ivy = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      passwordFile = "/persist/etc/shadows/ivy";
     };
   };
 
