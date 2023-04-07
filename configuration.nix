@@ -12,7 +12,20 @@
   networking.hostName = "pandatop";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default
+
+  # Define users
+  security.sudo.extraConfig = "Defaults lecture=never";
+
+  users = {
+    mutableUsers = false;
+
+    users.ivy = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+      passwordFile = "/etc/shadows/ivy";
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "US/Eastern";
@@ -51,12 +64,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ivy = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -84,13 +91,19 @@
 
   security.polkit.enable = true;
 
-  # stuff to make fde work
+  # Stuff to make fde work
   boot.initrd.luks.devices.cryptroot={device="/dev/disk/by-partlabel/nix";};
+
+  # Don't import zfs pools that were not properly exported
+  boot.zfs = {
+    forceImportAll = false;
+    forceImportRoot = false;
+  };
 
   # Hidpi stuff
   hardware.video.hidpi.enable=true;
   #  services.xserver.dpi=192;
 
-  # enable flakes
+  # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

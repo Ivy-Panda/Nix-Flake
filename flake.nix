@@ -11,10 +11,12 @@
   let
 
     defaultModules = [
+      impermanence.nixosModule
       ./configuration.nix
       ./modules/vim.nix
       ./modules/tmux.nix
       ./modules/packages.nix
+      ./modules/impermanence.nix
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -24,7 +26,6 @@
     ];
 
   in {
-
     nixosConfigurations = {
       pandatop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
