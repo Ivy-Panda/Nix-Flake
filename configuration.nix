@@ -23,7 +23,7 @@
     users.ivy = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      passwordFile = "/persist/shadows/ivy";
+      passwordFile = "/persist/etc/shadows/ivy";
     };
   };
 
