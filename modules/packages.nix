@@ -1,15 +1,19 @@
 { pkgs, ... }: {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    wget
-    fortune
-    git
-    lynx
-    weechat
+    _1password
     browsh
     firefox
-    screenfetch
-    pridefetch
+    fortune
+    git
     htop
+    lynx
     openssl
+    pridefetch
+    screenfetch
+    weechat
+    wget
+    mosh
   ];
 }
