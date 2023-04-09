@@ -17,3 +17,5 @@
 # chmod go= /mnt/persist/shadow -R
 # nixos-install --flake git+http://10.0.0.22:8080/?ref=main#xps --no-root-passwd
 # zpool export tank
+
+# ssh-keygen -o 100 -t ed25519 -f /path/to/ssh/key

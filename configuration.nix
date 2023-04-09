@@ -1,15 +1,9 @@
 { config, pkgs, ... }: {
 
-  imports = [ 
-    ./hardware-configuration.nix
-  ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostId = "12855db8";
-  networking.hostName = "pandatop";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default
@@ -100,8 +94,6 @@
     forceImportRoot = false;
   };
 
-  # Hidpi stuff
-  hardware.video.hidpi.enable=true;
   #  services.xserver.dpi=192;
 
   # Enable flakes

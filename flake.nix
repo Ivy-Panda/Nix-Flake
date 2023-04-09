@@ -29,7 +29,18 @@
     nixosConfigurations = {
       pandatop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [];
+        modules = defaultModules ++ [
+          ./hosts/pandatop/pandatop.nix
+          ./hosts/pandatop/hardware-configuration.nix
+        ];
+      };
+      
+      pandabutt = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = defaultModules ++ [
+          ./hosts/pandabutt/pandabutt.nix
+          ./hosts/pandabutt/hardware-configuration.nix
+        ];
       };
     };
   };
