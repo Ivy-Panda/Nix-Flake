@@ -40,6 +40,7 @@
         modules = defaultModules ++ [
           ./hosts/pandabutt/pandabutt.nix
           ./hosts/pandabutt/hardware-configuration.nix
+          ./modules/remote-unlock.nix 
         ];
       };
     };
