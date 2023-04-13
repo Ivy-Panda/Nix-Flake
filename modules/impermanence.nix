@@ -5,6 +5,7 @@
 
     directories = [
       "/var/log"
+      "/var/lib/tailscale"
     ];
 
     files = [

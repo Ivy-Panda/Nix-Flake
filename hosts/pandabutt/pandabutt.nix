@@ -1,6 +1,9 @@
 { config, pkgs, lib, ...}: {
-  networking.hostId = "e25123e6";
-  networking.hostName = "pandabutt";
+  networking = {
+    hostId = "e25123e6";
+    hostName = "pandabutt";
+    firewall.allowedUDPPortRanges = [{ from = 60001; to = 60010; }];
+  };
 
   services.openssh = {
     enable = true;
@@ -10,7 +13,4 @@
   };
 
   users.users."ivy".openssh.authorizedKeys.keyFiles = [ /home/ivy/.ssh/keys/authorized_keys ];
-
-  programs.mosh.enable = true;
-  networking.firewall.allowedUDPPorts = lib.mkForce [];
 }

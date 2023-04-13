@@ -68,7 +68,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+   networking.firewall.allowedUDPPorts = [ 60001 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -92,6 +92,8 @@
   };
 
   #  services.xserver.dpi=192;
+
+  services.tailscale.enable = true;
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
