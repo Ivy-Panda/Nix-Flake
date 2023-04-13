@@ -40,5 +40,11 @@
       device = "tank/persist/home";
       fsType = "zfs";
     };
+
+    "/mnt" = {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "mode=755" ];
+    };
   };
 }
