@@ -13,4 +13,8 @@
   };
 
   users.users."ivy".openssh.authorizedKeys.keyFiles = [ /home/ivy/.ssh/keys/authorized_keys ];
+
+  environment.systemPackages = with pkgs; [
+    weechat
+  ];
 }

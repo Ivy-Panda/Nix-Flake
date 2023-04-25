@@ -5,15 +5,16 @@
     _1password
     browsh
     firefox
-    fortune
+    # I like to laugh at the cringe
+    ( fortune.override { withOffensive = true; } )
     git
     htop
     lynx
     openssl
     pridefetch
     screenfetch
-    weechat
     wget
     mosh
   ];
+
 }
