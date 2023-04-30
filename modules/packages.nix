@@ -11,8 +11,7 @@
     htop
     lynx
     openssl
-    pridefetch
-    screenfetch
+    freshfetch
     wget
     mosh
   ];
