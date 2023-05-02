@@ -16,5 +16,6 @@
 
   environment.systemPackages = with pkgs; [
     weechat
+    certbot
   ];
 }

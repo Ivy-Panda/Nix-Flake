@@ -68,9 +68,13 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-   networking.firewall.allowedUDPPorts = [ 60001 ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Strict reverse path filtering breaks Tailscale exit node use
+  networking.firewall = {
+    allowedUDPPorts = [ 60001 ];
+    checkReversePath = "loose";
+  }
+
+  services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -92,8 +96,6 @@
   };
 
   #  services.xserver.dpi=192;
-
-  services.tailscale.enable = true;
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
