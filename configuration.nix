@@ -72,7 +72,7 @@
   networking.firewall = {
     allowedUDPPorts = [ 60001 ];
     checkReversePath = "loose";
-  }
+  };
 
   services.tailscale.enable = true;
 
