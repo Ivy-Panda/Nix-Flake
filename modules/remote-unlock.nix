@@ -7,7 +7,7 @@
 
     ssh = {
       enable = true;
-      authorizedKeys = [ (builtins.readFile /home/ivy/.ssh/keys/authorized_keys) ];
+      authorizedKeys = import ./modules/authorized_keys;
       hostKeys = [
         "/persist/etc/ssh/ssh_host_ed25519_key_initrd"
       ];

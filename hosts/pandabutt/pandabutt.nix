@@ -12,7 +12,7 @@
     kbdInteractiveAuthentication = false;
   };
 
-  users.users."ivy".openssh.authorizedKeys.keyFiles = [ /home/ivy/.ssh/keys/authorized_keys ];
+  users.users."ivy".openssh.authorizedKeys.keys = import ./modules/authorized_keys;
 
   environment.systemPackages = with pkgs; [
     weechat
