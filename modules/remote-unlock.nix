@@ -7,7 +7,7 @@
 
     ssh = {
       enable = true;
-      authorizedKeys = import ./modules/authorized_keys;
+      authorizedKeys = import ./authorized_keys;
       hostKeys = [
         "/persist/etc/ssh/ssh_host_ed25519_key_initrd"
       ];
