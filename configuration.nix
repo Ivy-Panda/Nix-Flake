@@ -24,10 +24,6 @@
   # Set your time zone.
   time.timeZone = "US/Eastern";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
@@ -76,6 +72,11 @@
 
   services.tailscale.enable = true;
 
+  # TODO: This is a temporary workaround for Network Manager errors on rebuild
+  # github:NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services.systemd-networkd-wait-online.enable = false;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -94,8 +95,6 @@
     forceImportAll = false;
     forceImportRoot = false;
   };
-
-  #  services.xserver.dpi=192;
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
