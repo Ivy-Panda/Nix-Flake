@@ -3,6 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     _1password
+    _1password-gui
     browsh
     firefox
     # I like to laugh at the cringe

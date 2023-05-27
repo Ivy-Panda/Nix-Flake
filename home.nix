@@ -7,4 +7,6 @@
   imports = [
     ./modules/home/git.nix
   ];
+
+  xdg.configFile."sway/config".source = ./modules/swayconfig;
 } 
