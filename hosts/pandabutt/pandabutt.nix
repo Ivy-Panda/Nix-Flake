@@ -7,15 +7,17 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
-  users.users."ivy".openssh.authorizedKeys.keys = import ../../modules/authorized_keys;
+    users.users."ivy".openssh.authorizedKeys.keys = import ../../modules/authorized_keys;
 
-  environment.systemPackages = with pkgs; [
-    weechat
-    certbot
-  ];
-}
+    environment.systemPackages = with pkgs; [
+      weechat
+      certbot
+    ];
+  }
