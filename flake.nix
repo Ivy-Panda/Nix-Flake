@@ -33,6 +33,7 @@
           ./hosts/pandatop/pandatop.nix
           ./hosts/pandatop/hardware-configuration.nix
           ./modules/sway.nix
+          ./modules/graphicalpackages.nix
         ];
       };
       

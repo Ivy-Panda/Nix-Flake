@@ -229,7 +229,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while date +'%m-%d-%Y %H:%M:%S'; do sleep 1; done
 
     colors {
         statusline #ffffff
@@ -237,5 +237,7 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+output eDP-1 scale 1.75
 
 include /etc/sway/config.d/*
