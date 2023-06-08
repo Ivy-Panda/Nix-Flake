@@ -27,6 +27,16 @@
 
   in {
     nixosConfigurations = {
+      pandaden = {
+        system = "x86_64-linux";
+        modules = defaultModules ++ [
+          ./hosts/pandaden/pandaden.nix
+          ./hosts/pandaden/hardware-configuration.nix
+          ./modules/sway.nix
+          ./modules/graphicalpackages.nix
+        ];
+      };
+
       pandatop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = defaultModules ++ [
