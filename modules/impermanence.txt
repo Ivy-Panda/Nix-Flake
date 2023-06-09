@@ -18,4 +18,4 @@
 # nixos-install --flake git+http://10.0.0.22:8080/?ref=main#xps --no-root-passwd
 # zpool export tank
 
-# ssh-keygen -O 100 -t ed25519 -f /path/to/ssh/key
+# ssh-keygen -a 100 -t ed25519 -f /path/to/ssh/key

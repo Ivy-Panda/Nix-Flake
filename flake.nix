@@ -27,7 +27,7 @@
 
   in {
     nixosConfigurations = {
-      pandaden = {
+      pandaden = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = defaultModules ++ [
           ./hosts/pandaden/pandaden.nix
