@@ -33,7 +33,7 @@
           ./hosts/pandaden/pandaden.nix
           ./hosts/pandaden/hardware-configuration.nix
           ./modules/sway.nix
-          ./modules/nvidia.nix
+          # ./modules/nvidia.nix
           ./modules/graphicalpackages.nix
         ];
       };
