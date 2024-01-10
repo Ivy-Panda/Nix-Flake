@@ -17,7 +17,7 @@
   users.ivy = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      passwordFile = "/persist/shadow/ivy";
+      hashedPasswordFile = "/persist/shadow/ivy";
     };
   };
 
