@@ -3,5 +3,6 @@
     _1password-gui
     signal-desktop
     tdesktop
+    racket
   ];
 }
