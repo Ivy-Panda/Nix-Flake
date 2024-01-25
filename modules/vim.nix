@@ -17,17 +17,20 @@
         set nocompatible
         set backspace=indent,eol,start
         syntax on
-        set undofile
         set hlsearch
         set ruler
         set number
+        set relativenumber
         set showcmd
         set wildmenu
         set ttimeout
         set ttimeoutlen=50
         set incsearch
+        set ignorecase
         set nrformats-=octal
+        set hidden
 
+        set undofile
         set swapfile
         set directory=~/tmp/dir//
         set backupdir=~/tmp/backupdir//
@@ -42,11 +45,14 @@
         " save a read-only file
         cmap w!! %!sudo tee > /dev/null %
 
+        " remap ESC to ;
+        noremap  <C-;> <esc>
+        inoremap <C-;> <esc>
+        cnoremap <C-;> <C-C>
+
       '';
     }
     )
   ];
 }
-
-
 

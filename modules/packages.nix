@@ -15,5 +15,7 @@
     neofetch
     wget
     mosh
+    wireshark
+    tshark
   ];
 }
