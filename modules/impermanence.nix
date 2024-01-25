@@ -1,4 +1,4 @@
-{ config, impermanence, ...}: {
+{ config, impermanence, ... }: {
 
   environment.persistence."/persist" = {
     hideMounts = true;

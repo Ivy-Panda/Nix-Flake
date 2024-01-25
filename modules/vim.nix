@@ -45,7 +45,7 @@
         " save a read-only file
         cmap w!! %!sudo tee > /dev/null %
 
-        " remap ESC to ;
+        " remap ESC to Ctrl + ;
         noremap  <C-;> <esc>
         inoremap <C-;> <esc>
         cnoremap <C-;> <C-C>

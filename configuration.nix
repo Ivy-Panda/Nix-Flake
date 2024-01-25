@@ -69,6 +69,10 @@
     checkReversePath = "loose";
   };
 
+  # Enable Wireshark
+  programs.wireshark.enable = true;
+
+  # Enable Tailscale
   services.tailscale.enable = true;
 
   # TODO: This is a temporary workaround for Network Manager errors on rebuild
