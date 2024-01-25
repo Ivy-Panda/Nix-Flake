@@ -19,7 +19,7 @@
   
   users.ivy = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "wireshark" ];
       hashedPasswordFile = "/persist/shadow/ivy";
     };
   };
@@ -71,6 +71,7 @@
 
   # Enable Wireshark
   programs.wireshark.enable = true;
+  environment.systemPackages = [ pkgs.wireshark-qt ];
 
   # Enable Tailscale
   services.tailscale.enable = true;
