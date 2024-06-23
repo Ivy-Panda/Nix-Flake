@@ -36,8 +36,8 @@
   console.useXkbConfig = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "ctrl:swapcaps"; # swaps capslock and ctrl
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.options = "ctrl:swapcaps"; # swaps capslock and ctrl
 
   # Change bash / anything using readline to use vi mode and show colored mode indicators
   environment.etc."inputrc".text = ''
@@ -67,6 +67,9 @@
   networking.firewall = {
     allowedUDPPorts = [ 60001 ];
     checkReversePath = "loose";
+
+    # Make trilium-server exception
+    interfaces.tailscale0.allowedTCPPorts = [ 9876 ];
   };
 
   # Enable Wireshark

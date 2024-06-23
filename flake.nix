@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     impermanence.url = "github:nix-community/impermanence";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -54,6 +54,7 @@
           ./hosts/pandabutt/pandabutt.nix
           ./hosts/pandabutt/hardware-configuration.nix
           ./modules/remote-unlock.nix 
+          ./modules/trilium-server.nix
         ];
       };
     };
