@@ -29,8 +29,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
-  i18n.extraLocaleSettings = { LC_TIME = "C"; }; # Sets the time format to 24h somehow
+  i18n.extraLocales = [ "tok/UTF-8" ];
+  i18n.extraLocaleSettings = { LC_TIME = "C.UTF-8"; }; # Sets the time format to 24h somehow
 
   # Use xkbOptions in console
   console.useXkbConfig = true;

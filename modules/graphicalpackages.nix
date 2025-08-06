@@ -4,5 +4,6 @@
     signal-desktop
     tdesktop
     racket
+    krita
   ];
 }

@@ -6,6 +6,7 @@
     directories = [
       "/var/log"
       "/var/lib/tailscale"
+      "/var/lib/nixos"
     ];
 
     # sudo ssh-keygen -C "" -t rsa -b 4096 -f /persist/etc/ssh/ssh_host_rsa_key
