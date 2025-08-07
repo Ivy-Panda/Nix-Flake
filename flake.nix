@@ -4,13 +4,19 @@
     impermanence.url = "github:nix-community/impermanence";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, impermanence, home-manager, ... }:
+  outputs = { self, nixpkgs, lix-module, impermanence, home-manager, ... }:
 
   let
 
     defaultModules = [
+      lix-module.nixosModules.default
       impermanence.nixosModule
       ./configuration.nix
       ./modules/vim.nix
