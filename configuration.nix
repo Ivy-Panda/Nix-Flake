@@ -1,9 +1,14 @@
 { config, pkgs, ... }: {
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use Lanzaboote for Secure Boot
+  boot.lanzaboote.enable = true;
+  boot.lanzaboote.pkiBundle = "/var/lib/sbctl";
+  boot.lanzaboote.settings.reboot-for-bitlocker = true;
+  
   # Allow unfree packages systemwide
   nixpkgs.config.allowUnfree = true;
 

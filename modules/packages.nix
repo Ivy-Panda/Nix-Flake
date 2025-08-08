@@ -15,5 +15,6 @@
     neofetch
     wget
     mosh
+    sbctl
   ];
 }

@@ -7,10 +7,9 @@
       "/var/log"
       "/var/lib/tailscale"
       "/var/lib/nixos"
+      "/var/lib/sbctl"
     ];
 
-    # sudo ssh-keygen -C "" -t rsa -b 4096 -f /persist/etc/ssh/ssh_host_rsa_key
-    # sudo ssh-keygen -C "" -t ed25519 -f /persist/etc/ssh/ssh_host_ed25519_key
     files = [
       "/etc/machine-id"
       "/etc/ssh/ssh_host_rsa_key"

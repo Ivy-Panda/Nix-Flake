@@ -1,0 +1,50 @@
+New machine setup
+
+Create ESP
+# mkfs.vfat -F32 /dev/nvme0n1p1
+
+Create Encrypted Partition
+# cryptsetup luksFormat --sector-size 4096 /dev/nvme0n1p2
+# cryptsetup --allow-discards --perf-no_read_workqueue --perf-no_write_workqueue --persistent open /dev/nvme0n1p2 cryptroot
+
+Create ZFS pool and shares
+# zpool create -o ashift=12 -o autotrim=on -O compression=zstd-1 -O acltype=posixacl -O xattr=sa -O atime=off -O mountpoint=legacy tank /dev/mapper/cryptroot
+# zfs create tank/persist
+# zfs create tank/nix
+
+Mount the nix system
+# mount -t tmpfs tmpfs /mnt
+# mkdir -p /mnt/{boot,nix,persist}
+# mount /dev/nvme0n1p1 /mnt/boot
+# mount -t zfs tank/persist /mnt/persist/
+# mount -t zfs tank/nix /mnt/nix/
+
+# nix-shell -p nixFlakes
+# mkdir -p /mnt/persist/shadow
+# openssl passwd -6 > /mnt/persist/shadow/ivy
+# chmod go= /mnt/persist/shadow -R
+# nixos-install --flake github:Ivy-Panda/Nix-Flake#<hostname> --no-root-passwd
+
+Export ZFS pool before rebooting
+# zpool export tank
+
+# ssh-keygen -a 100 -t ed25519 -f /path/to/ssh/key
+
+# sudo ssh-keygen -C "" -t rsa -b 4096 -f /persist/etc/ssh/ssh_host_rsa_key
+# sudo ssh-keygen -C "" -t ed25519 -f /persist/etc/ssh/ssh_host_ed25519_key
+
+Lanzaboote setup
+# sbctl create-keys
+# nixos-rebuild switch --log-format multiline-with-logs --flake . -v
+# sbctl verify
+@ reboot into EFI
+@ go to secure boot settings
+@ disable secure boot
+@ delete all PK, KEK, DB keys
+@ DO NOT DELETE DBX KEYS
+@ reboot into nixos
+# sbctl enroll-keys --microsoft
+@ rebooot into EFI
+@ enable secure boot
+@ reboot into nixos
+$ bootctl status
