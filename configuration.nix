@@ -9,6 +9,9 @@
   boot.lanzaboote.pkiBundle = "/var/lib/sbctl";
   boot.lanzaboote.settings.reboot-for-bitlocker = true;
   
+  # Enable firmware update daemon
+  services.fwupd.enable = true;
+
   # Allow unfree packages systemwide
   nixpkgs.config.allowUnfree = true;
 
