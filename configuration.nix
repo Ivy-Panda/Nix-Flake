@@ -12,6 +12,9 @@
   # Enable firmware update daemon
   services.fwupd.enable = true;
 
+  # Use Lix instead of Nix
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   # Allow unfree packages systemwide
   nixpkgs.config.allowUnfree = true;
 

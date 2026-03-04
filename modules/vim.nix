@@ -7,7 +7,7 @@
   system.activationScripts = { text = "mkdir -p /home/ivy/tmp"; };
 
   environment.systemPackages = with pkgs; [
-    ((vim_configurable.override {  }).customize{
+    ((vim-full.override {  }).customize{
       name="vim";
       vimrcConfig.packages.myplugins= with pkgs.vimPlugins; {
         start = [ vim-nix vim-lastplace ];
@@ -17,6 +17,7 @@
         set nocompatible
         set backspace=indent,eol,start
         syntax on
+        colorscheme default
         set hlsearch
         set ruler
         set number

@@ -1,26 +1,22 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgsUnstable.url = "nixpkgs/nixos-unstable";
 
-    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
-    
-    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, lix-module, lanzaboote, impermanence, home-manager, ... }:
+  outputs = { self, nixpkgs, lanzaboote, impermanence, home-manager, ... }:
 
   let
 
     defaultModules = [
-      lix-module.nixosModules.default
       lanzaboote.nixosModules.lanzaboote
       impermanence.nixosModule
 
@@ -59,7 +55,7 @@
           ./modules/graphicalpackages.nix
         ];
       };
-      
+
       pandabutt = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = defaultModules ++ [
