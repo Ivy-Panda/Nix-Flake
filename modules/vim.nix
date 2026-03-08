@@ -51,9 +51,15 @@
         inoremap <C-;> <esc>
         cnoremap <C-;> <C-C>
 
-      '';
-    }
-    )
-  ];
-}
+        " scroll through quickfix list errors without changing window
+        augroup QuickFix
+        au!
+        au FileType qf noremap <buffer> j :cnext<CR>zz<C-w>w
+        au FileType qf noremap <buffer> k :cprev<CR>zz<C-w>w
+        augroup END
 
+        '';
+      }
+      )
+    ];
+  }
