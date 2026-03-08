@@ -111,6 +111,13 @@
   #   enableSSHSupport = true;
   # };
 
+  # Enable 1password
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = ["ivy"];
+  };
+
   # Enable Wireshark
   programs.wireshark.enable = true;
   environment.systemPackages = [ pkgs.wireshark-qt ];
