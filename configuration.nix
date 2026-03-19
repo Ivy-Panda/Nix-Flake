@@ -9,9 +9,11 @@
   loader.efi.canTouchEfiVariables = true;
 
   # Use Lanzaboote for Secure Boot
-  lanzaboote.enable = true;
-  lanzaboote.pkiBundle = "/var/lib/sbctl";
-  lanzaboote.settings.reboot-for-bitlocker = true;
+  lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    settings.reboot-for-bitlocker = true;
+  };
 
   # FDE initialization 
   initrd.luks.devices.cryptroot={device="/dev/disk/by-partlabel/nix";};

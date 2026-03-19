@@ -79,6 +79,7 @@ in {
       };
     };
 
+    # FIXME
     # Force intel graphics driver to be loaded
     boot.kernelParams = [ "i915.force_probe=46a6" ];
   }
