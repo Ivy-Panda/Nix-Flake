@@ -96,11 +96,29 @@
   };
 
   # Change bash / anything using readline to use vi mode and show colored mode indicators
+
+  # Set <C-;> to enter vi-movement-mode using ANSI CSI 27 format code:
+  # ^[[27;5;59~ emitted by the foot terminal. More information can be found at:
+  # https://codeberg.org/dnkl/foot/issues/628#issuecomment-271212
+
+  # ANSI code ^[[27;5;59~ being emitted while in vi-insert mode will
+  # cause readline to change the character case of everything after the cursor
+  # and promptly enter command mode (vi-movement-mode). Binding the keycode (to anything)
+  # is a workaround that makes readline behave as expected.
+    # This seems like undefined behavior, I can't find anything about it in the
+    # readline documentation VwV
   environment.etc."inputrc".text = ''
     set editing-mode vi
     set show-mode-in-prompt on
     set vi-ins-mode-string "\1\e[1;32m\2[i]\1\e[0m\2"
     set vi-cmd-mode-string "\1\e[1;32m\2[\1\e[1;31m\2c\1\e[1;32m\2]\e[0m\2"
+
+    $if mode=vi
+    set keymap vi-insert
+    "\e[27;5;59~": vi-movement-mode
+    set keymap vi-command
+    "\e[27;5;59~": vi-movement-mode
+    $endif
   '';
 
   # TODO: This is a temporary workaround for Network Manager errors on rebuild
