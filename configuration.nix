@@ -62,6 +62,9 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default
 
+  # Enable dev documentation
+  documentation.dev.enable = true;
+
   # Enable services
   services = {
   # Enable Tailscale
