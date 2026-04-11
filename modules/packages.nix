@@ -17,5 +17,6 @@
     wget
     mosh
     sbctl
+    nix-tree
   ];
 }

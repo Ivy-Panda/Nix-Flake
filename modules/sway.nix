@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }:
+# TODO: Needs rewritten
 let
   dbus-sway-environment = pkgs.writeTextFile {
     name = "dbus-sway-environment";
