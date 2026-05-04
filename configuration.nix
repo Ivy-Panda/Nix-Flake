@@ -107,6 +107,7 @@
   # is a workaround that makes readline behave as expected.
     # This seems like undefined behavior, I can't find anything about it in the
     # readline documentation VwV
+    # TODO: Migrate this somewhere better
   environment.etc."inputrc".text = ''
     set editing-mode vi
     set show-mode-in-prompt on
@@ -119,6 +120,28 @@
     set keymap vi-command
     "\e[27;5;59~": vi-movement-mode
     $endif
+
+    $if term=m100
+
+    # No ANSI colors for tab completion
+    set colored-completion-prefix off
+
+    #Bind Tandy T102 TELCOM keys
+    Control-^: previous-history
+    Control-_: next-history
+    Control-]: backward-char
+
+    # Note: Use 'stty quit undef' to make right arrow work.
+    Control-\: forward-char
+
+    # Shift + BkSp to delete next char.
+    "\d": delete-char
+
+    # While we're here, disable ANSI colors for tab completion
+    set colored-completion-prefix off
+
+    $endif
+
   '';
 
   # TODO: This is a temporary workaround for Network Manager errors on rebuild

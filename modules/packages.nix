@@ -18,5 +18,6 @@
     mosh
     sbctl
     nix-tree
+    screen
   ];
 }

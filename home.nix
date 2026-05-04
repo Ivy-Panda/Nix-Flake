@@ -10,7 +10,7 @@
 
   xdg.configFile."sway/config".source = ./modules/swayconfig;
 
-  #Force cursor theme to fix tiny cursor
+  # Force cursor theme to fix tiny cursor
   home.pointerCursor = {
     sway.enable = true;
     name = "Adwaita";
@@ -21,4 +21,7 @@
       defaultCursor = "Adwaita";
     };
   };
+
+  # Enable Syncthing
+  services.syncthing.enable = true;
 } 
