@@ -23,6 +23,13 @@
     forceImportAll = false;
     forceImportRoot = false;
   };
+
+  kernelParams = ["console=tty0""console=ttyUSB0,19200n8"];
+
+  kernel.sysctl = {
+    "kernel.sysrq" = 1;
+    "kernel.printk" = "4 4 1 4";
+  };
 };
 
   # Set your time zone.
@@ -53,7 +60,7 @@
 
     users.ivy = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "wireshark" ];
+      extraGroups = [ "wheel" "wireshark" "screen" "dialout" ];
       hashedPasswordFile = "/persist/shadow/ivy";
     };
   };
@@ -114,14 +121,7 @@
     set vi-ins-mode-string "\1\e[1;32m\2[i]\1\e[0m\2"
     set vi-cmd-mode-string "\1\e[1;32m\2[\1\e[1;31m\2c\1\e[1;32m\2]\e[0m\2"
 
-    $if mode=vi
-    set keymap vi-insert
-    "\e[27;5;59~": vi-movement-mode
-    set keymap vi-command
-    "\e[27;5;59~": vi-movement-mode
-    $endif
-
-    $if term=m100
+    $if TERM=m100
 
     # No ANSI colors for tab completion
     set colored-completion-prefix off
@@ -139,9 +139,16 @@
 
     # While we're here, disable ANSI colors for tab completion
     set colored-completion-prefix off
+    set enable-bracketed-paste off
 
     $endif
-
+    
+    $if mode=vi
+    set keymap vi-insert
+    "\e[27;5;59~": vi-movement-mode
+    set keymap vi-command
+    "\e[27;5;59~": vi-movement-mode
+    $endif
   '';
 
   # TODO: This is a temporary workaround for Network Manager errors on rebuild
@@ -167,6 +174,8 @@
   # Enable Wireshark
   programs.wireshark.enable = true;
   environment.systemPackages = [ pkgs.wireshark-qt ];
+
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

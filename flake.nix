@@ -53,6 +53,7 @@
           ./hosts/pandatop/hardware-configuration.nix
           ./modules/sway.nix
           ./modules/graphicalpackages.nix
+          ./modules/t102.nix
           # ./modules/doom-emacs.nix
         ];
       };

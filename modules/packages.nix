@@ -19,5 +19,8 @@
     sbctl
     nix-tree
     screen
+    bsdgames
+    nbsdgames
+    robotfindskitten
   ];
 }
