@@ -121,7 +121,12 @@
     set vi-ins-mode-string "\1\e[1;32m\2[i]\1\e[0m\2"
     set vi-cmd-mode-string "\1\e[1;32m\2[\1\e[1;31m\2c\1\e[1;32m\2]\e[0m\2"
 
+    # Tandy T102 settings
     $if TERM=m100
+
+    # Remove colors from vi mode strings
+    set vi-ins-mode-string "[i]"
+    set vi-cmd-mode-string "[c]"
 
     # No ANSI colors for tab completion
     set colored-completion-prefix off
@@ -137,12 +142,13 @@
     # Shift + BkSp to delete next char.
     "\d": delete-char
 
-    # While we're here, disable ANSI colors for tab completion
+    # Disable ANSI colors for tab completion
     set colored-completion-prefix off
     set enable-bracketed-paste off
 
     $endif
-    
+
+    # For some reason this MUST be after the previous if statement
     $if mode=vi
     set keymap vi-insert
     "\e[27;5;59~": vi-movement-mode
